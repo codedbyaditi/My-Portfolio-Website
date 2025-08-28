@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Professional Website</title>
+    <!-- Use Tailwind CSS for modern styling -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f3f4f6;
+        }
+    </style>
+</head>
+<body class="bg-gray-100 min-h-screen flex items-center justify-center p-4">
+
+    <!-- Main card container for the website content -->
+    <div class="bg-white rounded-2xl shadow-xl max-w-2xl w-full p-8 md:p-12 space-y-8 flex flex-col items-center text-center transition-all duration-300 transform hover:scale-105">
+
+        <!-- Profile Section -->
+        <div class="flex flex-col items-center space-y-4">
+            <!-- Profile Picture Placeholder -->
+            <img src="https://placehold.co/128x128/e5e7eb/6b7280?text=Your+Photo" alt="Your Photo" class="w-32 h-32 rounded-full border-4 border-white shadow-lg transition-transform duration-300 hover:rotate-3">
+            
+            <h1 class="text-3xl font-bold text-gray-800">Your Name Here</h1>
+            <p class="text-lg text-gray-500">Your Professional Title</p>
+        </div>
+
+        <!-- About Me Section -->
+        <section class="w-full text-center">
+            <h2 class="text-2xl font-semibold text-gray-700 mb-4 border-b-2 border-gray-200 pb-2">About Me</h2>
+            <p class="text-gray-600 leading-relaxed">
+                This is a brief summary about your skills, experience, and professional goals. You can talk about your passion for your work, key achievements, or what you're currently looking for in your career. Make sure to update this with your own information!
+            </p>
+        </section>
+
+        <!-- Resume Actions Section -->
+        <section class="w-full text-center">
+            <h2 class="text-2xl font-semibold text-gray-700 mb-6 border-b-2 border-gray-200 pb-2">My Resume</h2>
+            
+            <!-- Download Button -->
+            <!-- The 'href' attribute now points to the file in the "resumes" folder -->
+            <!-- Make sure you have a folder named 'resumes' with your PDF inside -->
+            <a href="assets\Aditi_Pravin_Nimje_Resume.pdf" download="Aditi_Pravin_Nimje_Resume.pdf" class="inline-block px-8 py-4 bg-blue-600 text-white font-bold rounded-full shadow-lg hover:bg-blue-700 transition-all duration-300 transform hover:-translate-y-1 hover:shadow-xl focus:outline-none focus:ring-4 focus:ring-blue-500 focus:ring-opacity-50">
+                Download Resume
+            </a>
+            
+            <!-- A share button to use the native browser sharing functionality -->
+            <button id="shareButton" class="inline-block px-8 py-4 mt-4 md:mt-0 md:ml-4 bg-green-600 text-white font-bold rounded-full shadow-lg hover:bg-green-700 transition-all duration-300 transform hover:-translate-y-1 hover:shadow-xl focus:outline-none focus:ring-4 focus:ring-green-500 focus:ring-opacity-50">
+                Share with Colleagues
+            </button>
+            
+            <!-- Message box to display status messages or errors -->
+            <div id="messageBox" class="mt-6 text-sm text-gray-700"></div>
+
+        </section>
+
+    </div>
+
+    <script>
+        // Use an IIFE to keep variables private and avoid global conflicts.
+        (function() {
+            const shareButton = document.getElementById('shareButton');
+            const messageBox = document.getElementById('messageBox');
+            
+            // The download button's href is now a static link to a file,
+            // so no dynamic JavaScript is needed for download.
+            // The download attribute is handled directly in the HTML.
+
+            // Share button functionality using the Web Share API
+            shareButton.addEventListener('click', () => {
+                if (navigator.share) {
+                    navigator.share({
+                        title: 'My Online Resume',
+                        text: 'Check out my professional resume! You can download it directly from this link.',
+                        url: window.location.href
+                    })
+                    .then(() => {
+                        messageBox.textContent = 'Successfully shared!';
+                    })
+                    .catch((error) => {
+                        console.error('Error sharing:', error);
+                        messageBox.textContent = 'Sharing failed. Please try again.';
+                    });
+                } else {
+                    // Fallback for browsers that do not support the Web Share API
+                    messageBox.textContent = 'Web Share API is not supported in this browser. Please copy and paste the link to share.';
+                }
+            });
+        })();
+    </script>
+</body>
+</html>
