@@ -6,14 +6,31 @@
     <title>My Professional Website</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
-    <style>
+     <style>
         body {
             font-family: 'Inter', sans-serif;
             color: #e0e0e0;
             overflow-x: hidden;
             
-            /* NEW: Clean, dark blue gradient background */
-            background: linear-gradient(to bottom, #151d2f, #0a0e1a);
+            /* NEW: Subtle Starfield Background */
+            background: 
+                radial-gradient(2px 2px at 20px 30px, #eee, rgba(0,0,0,0)),
+                radial-gradient(2px 2px at 40px 70px, #fff, rgba(0,0,0,0)),
+                radial-gradient(1px 1px at 50px 100px, #ddd, rgba(0,0,0,0)),
+                radial-gradient(2px 2px at 90px 40px, #fff, rgba(0,0,0,0)),
+                radial-gradient(1px 1px at 100px 90px, #ccc, rgba(0,0,0,0));
+            background-color: #1a1a1a;
+            background-size: 200px 200px, 300px 300px, 150px 150px, 250px 250px, 180px 180px;
+            animation: move-background 60s infinite linear;
+        }
+        
+        @keyframes move-background {
+            from {
+                background-position: 0 0;
+            }
+            to {
+                background-position: 200px 200px;
+            }
         }
         
         .gradient-card {
@@ -58,7 +75,7 @@
         }
         .card-project:hover {
             transform: translateY(-8px) rotate(-1deg);
-            box-shadow: 12px 25px rgba(0, 0, 0, 0.5);
+            box-shadow: 0 12px 25px rgba(0, 0, 0, 0.5);
             border-image: linear-gradient(to bottom, #6b46c1, #805ad5) 1;
         }
         .tag-pill {
