@@ -4,74 +4,208 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>My Professional Website</title>
-    <!-- Use Tailwind CSS for modern styling -->
-    <link rel="stylesheet" href="./index.css">
-    <script src="https://unpkg.com/tailwindcss@3.4.7/lib/index.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/tailwindcss@3.4.7/lib/index.js"></script>
+    <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
     <style>
         body {
             font-family: 'Inter', sans-serif;
-            background-color: #f3f4f6;
+            color: #e0e0e0;
+            overflow-x: hidden;
+            
+            /* NEW: Clean, dark blue gradient background */
+            background: linear-gradient(to bottom, #151d2f, #0a0e1a);
+        }
+        
+        .gradient-card {
+            background: linear-gradient(to top left, #2c3e50, #1a1a1a);
+            color: #f0f0f0;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.5);
+        }
+        .dark-text-primary {
+            color: #f0f0f0;
+        }
+        .dark-text-secondary {
+            color: #b0b0b0;
+        }
+        .dark-border {
+            border-color: #4a4a4a;
+        }
+        .btn-primary-glow {
+            background: linear-gradient(to right, #6b46c1, #805ad5);
+            color: #ffffff;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(107, 70, 193, 0.4);
+        }
+        .btn-primary-glow:hover {
+            transform: translateY(-4px) scale(1.02);
+            box-shadow: 0 8px 20px rgba(107, 70, 193, 0.6);
+        }
+        .btn-secondary-glow {
+            background: linear-gradient(to right, #38a169, #2f855a);
+            color: #ffffff;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(56, 161, 105, 0.4);
+        }
+        .btn-secondary-glow:hover {
+            transform: translateY(-4px) scale(1.02);
+            box-shadow: 0 8px 20px rgba(56, 161, 105, 0.6);
+        }
+        .card-project {
+            background: #1a1a1a;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+            transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+            border-left: 4px solid transparent;
+        }
+        .card-project:hover {
+            transform: translateY(-8px) rotate(-1deg);
+            box-shadow: 12px 25px rgba(0, 0, 0, 0.5);
+            border-image: linear-gradient(to bottom, #6b46c1, #805ad5) 1;
+        }
+        .tag-pill {
+            background: #4a4a4a;
+            color: #e0e0e0;
+            padding: 4px 10px;
+            border-radius: 9999px;
+            font-size: 0.8rem;
+            font-weight: 500;
+            transition: transform 0.2s ease;
+        }
+        .tag-pill:hover {
+            transform: scale(1.1);
         }
     </style>
 </head>
-<body class="bg-gray-100 min-h-screen flex items-center justify-center p-4">
+<body class="min-h-screen p-4 flex flex-col items-center">
 
-    <!-- Main card container for the website content -->
-    <div class="bg-white rounded-2xl shadow-xl max-w-2xl w-full p-8 md:p-12 space-y-8 flex flex-col items-center text-center transition-all duration-300 transform hover:scale-105">
-
-        <!-- Profile Section -->
-        <div class="flex flex-col items-center space-y-4">
-            <!-- Profile Picture Placeholder -->
-            <img src="https://placehold.co/128x128/e5e7eb/6b7280?text=Your+Photo" alt="Your Photo" class="w-32 h-32 rounded-full border-4 border-white shadow-lg transition-transform duration-300 hover:rotate-3">
-            
-            <h1 class="text-3xl font-bold text-gray-800">Your Name Here</h1>
-            <p class="text-lg text-gray-500">Your Professional Title</p>
+    <nav class="fixed top-0 left-0 right-0 z-50 p-4 backdrop-filter backdrop-blur-lg bg-black bg-opacity-30">
+        <div class="container mx-auto flex justify-center space-x-8 text-lg font-semibold dark-text-primary">
+            <a href="#about" class="hover:text-purple-400 transition-colors">About</a>
+            <a href="#skills" class="hover:text-purple-400 transition-colors">Skills</a>
+            <a href="#projects" class="hover:text-purple-400 transition-colors">Projects</a>
+            <a href="#experience" class="hover:text-purple-400 transition-colors">Experience</a>
+            <a href="#contact" class="hover:text-purple-400 transition-colors">Contact</a>
         </div>
+    </nav>
+    <div class="mt-20"></div>
 
-        <!-- About Me Section -->
-        <section class="w-full text-center">
-            <h2 class="text-2xl font-semibold text-gray-700 mb-4 border-b-2 border-gray-200 pb-2">About Me</h2>
-            <p class="text-gray-600 leading-relaxed">
-                This is a brief summary about your skills, experience, and professional goals. You can talk about your passion for your work, key achievements, or what you're currently looking for in your career. Make sure to update this with your own information!
-            </p>
+    <div class="space-y-24 max-w-4xl w-full p-4 md:p-8">
+
+        <section id="about" class="gradient-card rounded-2xl w-full p-8 md:p-12 space-y-8 flex flex-col items-center text-center transition-all duration-300 transform hover:scale-105">
+            <div class="flex flex-col items-center space-y-4">
+                <img src="https://placehold.co/128x128/222222/ffffff?text=Your+Photo" alt="Your Photo" class="w-32 h-32 rounded-full border-4 border-[#666666] shadow-lg transition-transform duration-300 hover:rotate-3">
+                <h1 class="text-3xl font-bold dark-text-primary">Nimje Aditi Pravin</h1>
+                <p class="text-lg dark-text-secondary">Full-Stack Developer</p>
+            </div>
+            <div class="w-full text-center">
+                <h2 class="text-2xl font-semibold dark-text-primary mb-4 dark-border pb-2">About Me</h2>
+                <p class="dark-text-secondary leading-relaxed">
+                    Focused on delivering efficient, scalable solutions and tackling diverse technical challenges. Proficient in Java, SQL, Frontend, and collaborative problem-solving.
+                </p>
+            </div>
+            <div class="w-full text-center">
+                <h2 class="text-2xl font-semibold dark-text-primary mb-6 dark-border pb-2">My Resume</h2>
+                <a href="assets/Aditi_Pravin_Nimje_Resume.pdf" download="Aditi_Pravin_Nimje_Resume.pdf" class="inline-block px-8 py-4 btn-primary-glow font-bold rounded-full shadow-lg focus:outline-none focus:ring-4 focus:ring-blue-500 focus:ring-opacity-50">
+                    Download Resume
+                </a>
+            </div>
         </section>
 
-        <!-- Resume Actions Section -->
-        <section class="w-full text-center">
-            <h2 class="text-2xl font-semibold text-gray-700 mb-6 border-b-2 border-gray-200 pb-2">My Resume</h2>
-            
-            <!-- Download Button -->
-            <!-- The 'href' attribute now points to the file in the "resumes" folder -->
-            <!-- Make sure you have a folder named 'resumes' with your PDF inside -->
-            <a href="assets\Aditi_Pravin_Nimje_Resume.pdf" download="Aditi_Pravin_Nimje_Resume.pdf" class="inline-block px-8 py-4 bg-blue-600 text-white font-bold rounded-full shadow-lg hover:bg-blue-700 transition-all duration-300 transform hover:-translate-y-1 hover:shadow-xl focus:outline-none focus:ring-4 focus:ring-blue-500 focus:ring-opacity-50">
-                Download Resume
-            </a>
-            
-            <!-- A share button to use the native browser sharing functionality -->
-            <button id="shareButton" class="inline-block px-8 py-4 mt-4 md:mt-0 md:ml-4 bg-green-600 text-white font-bold rounded-full shadow-lg hover:bg-green-700 transition-all duration-300 transform hover:-translate-y-1 hover:shadow-xl focus:outline-none focus:ring-4 focus:ring-green-500 focus:ring-opacity-50">
-                Share with Colleagues
-            </button>
-            
-            <!-- Message box to display status messages or errors -->
-            <div id="messageBox" class="mt-6 text-sm text-gray-700"></div>
+        <section id="skills" class="w-full">
+            <h2 class="text-3xl font-bold text-center dark-text-primary mb-8">Technical Skills</h2>
+            <div class="flex flex-wrap justify-center gap-4">
+                <div class="bg-[#1a1a1a] p-4 rounded-xl text-center shadow-lg transform hover:scale-110 transition-transform">
+                    <p class="font-semibold">HTML</p>
+                </div>
+                <div class="bg-[#1a1a1a] p-4 rounded-xl text-center shadow-lg transform hover:scale-110 transition-transform">
+                    <p class="font-semibold">CSS</p>
+                </div>
+                <div class="bg-[#1a1a1a] p-4 rounded-xl text-center shadow-lg transform hover:scale-110 transition-transform">
+                    <p class="font-semibold">JavaScript</p>
+                </div>
+                <div class="bg-[#1a1a1a] p-4 rounded-xl text-center shadow-lg transform hover:scale-110 transition-transform">
+                    <p class="font-semibold">ReactJS</p>
+                </div>
+                <div class="bg-[#1a1a1a] p-4 rounded-xl text-center shadow-lg transform hover:scale-110 transition-transform">
+                    <p class="font-semibold">NodeJS</p>
+                </div>
+                <div class="bg-[#1a1a1a] p-4 rounded-xl text-center shadow-lg transform hover:scale-110 transition-transform">
+                    <p class="font-semibold">Java</p>
+                </div>
+                <div class="bg-[#1a1a1a] p-4 rounded-xl text-center shadow-lg transform hover:scale-110 transition-transform">
+                    <p class="font-semibold">SQL</p>
+                </div>
+                </div>
+        </section>
 
+        <section id="projects" class="w-full">
+            <h2 class="text-3xl font-bold text-center dark-text-primary mb-8">My Projects</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                <div class="card-project rounded-2xl p-6 space-y-4">
+                    <img src="E:\projects\My-Portfolio-Website\assets\chat-bot.png" alt="Project 1" class="w-full h-auto rounded-lg mb-4">
+                    <h3 class="text-xl font-bold dark-text-primary">React AI Chatbot</h3>
+                    <p class="dark-text-secondary text-sm">Developed an AI chatbot in ReactJS integrating API-driven NLP for real-time, context-aware responses.</p>
+                    <div class="flex flex-wrap gap-2 mt-4">
+                        <span class="tag-pill">React</span>
+                        <span class="tag-pill">Node.js</span>
+                        <span class="tag-pill">MongoDB</span>
+                    </div>
+                    <div class="flex flex-col sm:flex-row space-y-2 sm:space-y-0 sm:space-x-4 mt-4">
+                     
+<a href="https://github.com/codedbyaditi/codeBuddy.git" target="_blank" className="px-6 py-2 rounded-full border border-[#4a4a4a] text-center dark-text-secondary hover:bg-[#2c3e50] transition-colors">GitHub Repo</a>                    </div>
+               
+</div>
+
+               
+                   
+        </section>
+        
+        <section id="experience" class="w-full">
+            <h2 class="text-3xl font-bold text-center dark-text-primary mb-8">My Experience</h2>
+            <div class="space-y-8">
+                <div class="gradient-card rounded-xl p-6 transform hover:scale-105 transition-transform">
+                    <h3 class="text-xl font-bold dark-text-primary">Research Experience</h3>
+                    <p class="text-lg dark-text-secondary mt-1"> Co-Author, IEEE Publication (2025) – “Eye Blink Based Smart Assistance System for ALS Patients” using EAR Algorithm.</p>
+                    <ul class="list-disc list-inside mt-4 dark-text-secondary space-y-2">
+                        <li>Used Eye Aspect Ratio (EAR) to detect eye blinks by calculating geometric ratios of eye landmarks.</li>
+                        <li>Set threshold-based EAR values to differentiate between open, closed, and intentional blinks.</li>
+                        <li>Enabled ALS patients to interact with the system via voluntary blink detection for assistance.</li>
+                    </ul>
+                </div>
+                <div class="gradient-card rounded-xl p-6 transform hover:scale-105 transition-transform">
+                    <h3 class="text-xl font-bold dark-text-primary">Bachelor of Technology in Computer Science</h3>
+                    <p class="text-lg dark-text-secondary mt-1">Presidency University | Karnataka, Banglore | 2022- 2026</p>
+                    <ul class="list-disc list-inside mt-4 dark-text-secondary space-y-2">
+                        <li>Graduated with honors, specializing in Software Development.</li>
+                        <li>Completed coursework in Data Structures, Algorithms, and Database Management.</li>
+                        <li>Active member of the university's hackathon club.</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <section id="contact" class="w-full text-center">
+            <h2 class="text-3xl font-bold dark-text-primary mb-4">Contact Me</h2>
+            <p class="dark-text-secondary mb-8">Feel free to connect with me. Let's build something amazing together!</p>
+            <div class="flex justify-center space-x-6">
+                <a href="https://www.linkedin.com/in/aditi-nimje-b49893256/" target="_blank" class="btn-primary-glow p-4 rounded-full text-2xl" aria-label="LinkedIn">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-linkedin"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path><rect x="2" y="9" width="4" height="12"></rect><circle cx="4" cy="4" r="2"></circle></svg>
+                </a>
+                <a href="https://github.com/codedbyaditi" target="_blank" class="btn-secondary-glow p-4 rounded-full text-2xl" aria-label="GitHub">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-github"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77a5.07 5.07 0 0 0-.42-4.75s-2.02-.6-4.22 1.62a15.82 15.82 0 0 0-9.61 0C5.42-.6 3.4-.02 3.4-.02A5.07 5.07 0 0 0 3 4.77a5.44 5.44 0 0 0 1.5 3.78c-3.14 1.4-6.44 2.59-6.44 7A5.44 5.44 0 0 0 5 20.23c-1.4 1.4-2.3 2-2.3 2"></path></svg>
+                </a>
+                <a href="mailto:aditinimje1207@gmail.com" class="btn-primary-glow p-4 rounded-full text-2xl" aria-label="Email">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-mail"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
+                </a>
+            </div>
         </section>
 
     </div>
 
     <script>
-        // Use an IIFE to keep variables private and avoid global conflicts.
         (function() {
             const shareButton = document.getElementById('shareButton');
             const messageBox = document.getElementById('messageBox');
             
-            // The download button's href is now a static link to a file,
-            // so no dynamic JavaScript is needed for download.
-            // The download attribute is handled directly in the HTML.
-
-            // Share button functionality using the Web Share API
             shareButton.addEventListener('click', () => {
                 if (navigator.share) {
                     navigator.share({
@@ -80,15 +214,14 @@
                         url: window.location.href
                     })
                     .then(() => {
-                        messageBox.textContent = 'Successfully shared!';
+                        messageBox.textContent = 'Successfully shared! 🎉';
                     })
                     .catch((error) => {
                         console.error('Error sharing:', error);
-                        messageBox.textContent = 'Sharing failed. Please try again.';
+                        messageBox.textContent = 'Sharing failed. Please try again. 😕';
                     });
                 } else {
-                    // Fallback for browsers that do not support the Web Share API
-                    messageBox.textContent = 'Web Share API is not supported in this browser. Please copy and paste the link to share.';
+                    messageBox.textContent = 'Web Share API is not supported in this browser. Please copy and paste the link to share. 📋';
                 }
             });
         })();
